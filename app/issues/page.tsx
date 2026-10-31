@@ -2,6 +2,7 @@ import { prisma } from "@/prisma/client";
 import IssuesTable from "../components/IssuesTable";
 import CreateIssueButton from '../components/CreateIssueButton';
 
+export const dynamic = 'force-dynamic';
 
 export default async function IssuesPage() {
   const issues = await prisma.issue.findMany({ orderBy: { createdAt: "desc" } });
@@ -12,7 +13,7 @@ export default async function IssuesPage() {
   }));
 
   return (
-    <div className="min-h-[70vh] px-6 pt-10 bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-[70vh] px-6 pt-10 bg-gradient-to-b from-brand-50 to-canvas">
       <div className="mx-auto max-w-5xl">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-3xl font-bold text-gray-900">Issues</h1>
