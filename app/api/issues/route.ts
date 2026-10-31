@@ -54,7 +54,7 @@ export async function GET(req: Request) {
   try {
     const issues = await prisma.issue.findMany({
       orderBy: { createdAt: 'desc' },
-      include: { assignee: true },
+      include: { assignee: { select: { id: true, name: true, email: true, image: true } } },
     });
 
     return NextResponse.json(issues, { status: 200 });
