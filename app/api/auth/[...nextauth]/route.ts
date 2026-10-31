@@ -10,7 +10,7 @@ const loginSchema = z.object({
   password: z.string().min(6),
 });
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   // Keep sessions as JWTs (simple + fast)
   session: { strategy: "jwt" },
