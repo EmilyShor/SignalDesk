@@ -166,7 +166,7 @@ function IssuesTableProInner({ issues }: Props) {
       case 'title':
         return (
           <div className="flex flex-col">
-            <NextLink href={`/issues/${item.id}`} className="text-blue-600 hover:underline font-medium">
+            <NextLink href={`/issues/${item.id}`} className="text-brand-600 hover:underline font-medium">
               {item.title}
             </NextLink>
             {item.description && (
