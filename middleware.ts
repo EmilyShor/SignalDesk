@@ -8,6 +8,6 @@ export const config = {
     // - your public auth routes
     // - your register API (must stay public!)
     // - Next.js internals & static files
-    "/((?!api/auth|api/register|signin|signup|_next|favicon.ico|public|assets|images).*)",
+    "/((?!api/auth|api/register|signin|signup|_next|favicon.ico|icon.svg|public|assets|images).*)",
   ],
 };

@@ -1,72 +1,55 @@
-# ZeroBug — Issue Tracker
+# SignalDesk
 
-A full-stack issue tracker built with **Next.js (App Router)**, **TypeScript**, **Prisma**, **MySQL**, **NextAuth**, **TailwindCSS** and **HeroUI**.  
-The project structure follows the Next.js App Router conventions and was bootstrapped with `create-next-app`.
+**Less noise. More progress.** A full-stack issue tracker with a calm aubergine, violet, and mint visual identity.
 
----
+## Origin and contributions
 
-## ✨ Features
+SignalDesk is Emily Shor's visual customization of [RoyNaor/ZeroBug](https://github.com/RoyNaor/ZeroBug). The original application and its commit history remain credited to their original authors. This repository is a fork, not a claim of sole authorship.
 
-- 🔐 Authentication with **NextAuth** (credentials)
-- 👥 User management & protected routes via middleware
-- 🐞 Full Issues CRUD (create, list, edit, delete)
-- 👤 Assign issues to users
-- 🎨 UI with **TailwindCSS** + **HeroUI**
-- 🗃️ **Prisma ORM** with **MySQL** backend
-- ⚙️ Configured for local development & easy deploy
+Changes in this version:
 
----
+- New SignalDesk identity, pulse logo, browser icon, page title, and product copy.
+- A shared violet HeroUI theme, mint accents, and warm light backgrounds.
+- A redesigned dashboard header and coordinated sign-in and registration layouts.
+- A shared brand component and an environment template for local setup.
+- Next.js 15.5.28, a corrected route export, a MySQL migration case fix, and restricted assignee fields in issue responses.
 
-## 🧱 Tech Stack
+The upstream snapshot does not include a license file. This fork retains upstream authorship and does not introduce a new license.
 
-- **Framework:** Next.js (App Router), React, TypeScript  
-- **UI:** TailwindCSS, HeroUI  
-- **Auth:** NextAuth (JWT)  
-- **Database:** MySQL + Prisma ORM  
-- **Tooling:** ESLint, PostCSS, npm/yarn/pnpm
+## Features and stack
 
----
+- Issue creation, editing, deletion, assignment, search, and status tracking.
+- Credentials authentication and protected application routes.
+- Dashboard totals, recent issues, and status summaries.
+- Next.js App Router, React, TypeScript, HeroUI, Tailwind CSS, NextAuth, Prisma, and MySQL.
 
-## 📁 Project Structure
+## Local setup
 
-- app/ # Next.js App Router pages & routes
-- prisma/ # Prisma schema & migrations
-- public/ # Static assets
-- middleware.ts # Auth & route protection
-- next.config.js # Next.js config
-- tailwind.config.ts # Tailwind config
-- postcss.config.js # PostCSS config
+Requires Node.js 20.19 or newer, pnpm, and MySQL 8. Create an empty `signaldesk` database and a database user before running the migrations.
 
----
-
-## 🚀 Getting Started
-
-
-### 1. Prerequisites
-- **Node.js** 18+
-- **MySQL** 8.x (local or remote)
-
-### 2. Clone & install
 ```bash
-git clone https://github.com/RoyNaor/ZeroBug.git
-cd ZeroBug
-npm install
-# or: pnpm install / yarn install
-```
-### 3. Environment Variables
-- DATABASE_URL="mysql://<USER>:<PASSWORD>@localhost:3306/issues_tracker"
-- NEXTAUTH_SECRET="<generate-a-strong-random-string>"
-- NEXTAUTH_URL="http://localhost:3000"
-
-### 4. Prisma setup
-```bash
-npx prisma migrate dev
-# or if schema already matches DB
-npx prisma db push
-```
-### 5. Run the app
-```bash
-npm run dev
+git clone https://github.com/EmilyShor/SignalDesk.git
+cd SignalDesk
+pnpm install
+cp .env.example .env
 ```
 
+Set `DATABASE_URL` to your MySQL connection string and replace `NEXTAUTH_SECRET` with a locally generated secret (`openssl rand -base64 32`). Never commit your `.env` file.
 
+```bash
+pnpm db:generate
+pnpm db:migrate
+pnpm dev
+```
+
+Open [localhost:3000](http://localhost:3000) and create an account. The app requires a configured MySQL database for registration, authentication, and issue data.
+
+```bash
+pnpm typecheck
+pnpm lint
+pnpm build
+```
+
+## Branding
+
+The color palette and HeroUI tokens live in `tailwind.config.ts`. The shared logo is in `app/components/Brand.tsx`; `app/icon.svg` provides the matching browser icon. The design uses system fonts and does not require downloading Google Fonts.
