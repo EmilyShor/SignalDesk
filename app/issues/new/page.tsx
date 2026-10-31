@@ -55,7 +55,7 @@ export default function NewIssuePage() {
   };
 
   return (
-    <div className="min-h-[70vh] bg-gradient-to-b from-blue-50 to-white flex items-center justify-center p-6">
+    <div className="min-h-[70vh] bg-gradient-to-b from-brand-50 to-canvas flex items-center justify-center p-6">
       <Card className="w-full max-w-2xl shadow-sm border border-neutral-200 rounded-2xl">
         <CardHeader className="py-6">
           <div className="w-full">
