@@ -20,7 +20,7 @@ import {
   DropdownItem,
   Skeleton,
 } from '@heroui/react';
-import { AiFillBug } from 'react-icons/ai';
+import Brand from './components/Brand';
 import { FiUser } from 'react-icons/fi';
 import { useSession, signOut } from 'next-auth/react';
 
@@ -46,7 +46,7 @@ export default function AppNavbar() {
     <Navbar
       maxWidth="xl"
       onMenuOpenChange={setIsMenuOpen}
-      className="bg-white/80 backdrop-blur border-b border-gray-200 text-gray-800"
+      className="bg-white/80 backdrop-blur border-b border-brand-100 text-ink"
     >
       {/* Left: burger + brand */}
       <NavbarContent>
@@ -55,8 +55,7 @@ export default function AppNavbar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <AiFillBug className="text-blue-600 mr-2 text-2xl" />
-          <p className="font-bold text-gray-900 tracking-tight">ZeroBug</p>
+          <NextLink href="/" aria-label="SignalDesk home"><Brand /></NextLink>
         </NavbarBrand>
       </NavbarContent>
 
@@ -73,7 +72,7 @@ export default function AppNavbar() {
                 color={active ? 'primary' : 'foreground'}
                 className={
                   active
-                    ? 'text-blue-700 font-medium'
+                    ? 'text-brand-700 font-medium'
                     : 'text-gray-600 hover:text-gray-900 transition-colors'
                 }
               >
@@ -140,7 +139,7 @@ export default function AppNavbar() {
               as={NextLink}
               href={href}
               size="lg"
-              className={isActive(href) ? 'text-blue-700 font-medium' : ''}
+              className={isActive(href) ? 'text-brand-700 font-medium' : ''}
               onClick={() => setIsMenuOpen(false)}
             >
               {label}

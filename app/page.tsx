@@ -73,22 +73,24 @@ export default function Home() {
   }, [issues]);
 
   return (
-    <div className="min-h-[70vh] p-6 md:p-8 bg-gradient-to-b from-blue-50 to-white">
+    <main className="min-h-[calc(100vh-4rem)] p-5 md:p-8 bg-gradient-to-b from-brand-50 to-canvas">
       {/* Top: Heading + Actions */}
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-          <div>
-            <h1 className="text-2xl md:text-3xl font-semibold text-gray-900">Dashboard</h1>
-            <p className="text-sm text-gray-500">Overview of your issues at a glance.</p>
+        <div className="relative overflow-hidden rounded-3xl bg-ink p-7 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+          <div className="relative z-10">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-mint">Your work, in focus</p>
+            <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-white">A clear view. A better next step.</h1>
+            <p className="mt-3 text-sm leading-6 text-white/70">From first report to final resolution, keep every issue moving.</p>
           </div>
-          <div className="flex gap-3">
-            <Button as={NextLink} href="/issues/new" color="primary" variant="shadow">
-              New Issue
+          <div className="relative z-10 flex shrink-0 gap-3">
+            <Button as={NextLink} href="/issues/new" className="bg-mint text-ink font-semibold" variant="solid">
+              + New issue
             </Button>
-            <Button as={NextLink} href="/issues" variant="flat">
-              View All
+            <Button as={NextLink} href="/issues" className="border border-white/30 text-white" variant="bordered">
+              All issues
             </Button>
           </div>
+          <div aria-hidden="true" className="pointer-events-none absolute -right-12 -top-32 h-80 w-80 rounded-full border-[50px] border-brand-400/10" />
         </div>
 
         {/* KPI Cards */}
@@ -114,7 +116,10 @@ export default function Home() {
             <CardBody>
               {!issues && !error && <TableSkeleton rows={6} />}
               {error && (
-                <div className="text-sm text-danger-500">{error}</div>
+                <div role="alert" className="rounded-xl bg-danger-50 p-5 text-sm text-danger-700">
+                  <p>{error}</p>
+                  <Button size="sm" variant="flat" color="danger" onPress={load} className="mt-3">Try again</Button>
+                </div>
               )}
               {issues && !error && (
                 <Table
@@ -142,7 +147,7 @@ export default function Home() {
                           <div className="flex flex-col">
                             <NextLink
                               href={`/issues/${i.id}`}
-                              className="text-blue-600 hover:underline font-medium"
+                              className="text-brand-600 hover:underline font-medium"
                             >
                               {i.title}
                             </NextLink>
@@ -197,7 +202,9 @@ export default function Home() {
             </CardHeader>
             <Divider />
             <CardBody className="space-y-4">
-              {!issues ? (
+              {error ? (
+                <p className="py-4 text-sm text-gray-500">Status totals will appear when your issues are available.</p>
+              ) : !issues ? (
                 <div className="space-y-4">
                   <Skeleton className="rounded-lg h-5 w-full" />
                   <Skeleton className="rounded-lg h-5 w-full" />
@@ -240,7 +247,7 @@ export default function Home() {
           </Card>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
@@ -256,7 +263,7 @@ function StatCard({
   color?: 'primary' | 'success' | 'warning';
 }) {
   return (
-    <Card className="border border-gray-200">
+    <Card className="border border-brand-100 shadow-sm">
       <CardBody className="py-5">
         <div className="text-sm text-gray-500">{title}</div>
         {value === null ? (
