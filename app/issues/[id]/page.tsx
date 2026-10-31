@@ -13,7 +13,7 @@ import {
   User,
 } from '@heroui/react';
 import { notFound } from 'next/navigation';
-import { AiFillBug } from 'react-icons/ai';
+import { BrandMark } from '@/app/components/Brand';
 import { FiUser } from 'react-icons/fi';
 import DeleteIssueButton from '../../components/DeleteIssueButton';
 
@@ -50,12 +50,12 @@ export default async function IssueDetailPage(props: Props) {
   if (!issue) notFound();
 
   return (
-    <div className="min-h-[70vh] px-6 pt-10 bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-[70vh] px-6 pt-10 bg-gradient-to-b from-brand-50 to-canvas">
       <div className="mx-auto max-w-4xl">
         <Card className="border border-gray-200 shadow-lg">
           <CardHeader className="flex items-center justify-between gap-3 py-6">
             <div className="flex items-center gap-3">
-              <AiFillBug className="text-blue-600 text-3xl" />
+              <BrandMark className="h-10 w-10 text-brand-700" />
               <div>
                 <h1 className="text-2xl font-semibold text-gray-900">{issue.title}</h1>
                 <div className="mt-1 flex items-center gap-3 text-sm text-gray-500">
