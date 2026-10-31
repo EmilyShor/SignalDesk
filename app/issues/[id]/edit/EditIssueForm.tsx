@@ -6,7 +6,7 @@ import {
   Card, CardHeader, CardBody, CardFooter, Divider,
   Input, Textarea, Button, Chip, Select, SelectItem
 } from '@heroui/react';
-import { AiFillBug } from 'react-icons/ai';
+import { BrandMark } from '@/app/components/Brand';
 import axios from 'axios';
 import AssigneeSelect from '@/app/components/AssigneeSelect';
 
@@ -57,11 +57,11 @@ export default function EditIssueForm({ issue }: { issue: Issue }) {
   };
 
   return (
-    <div className="min-h-[70vh] px-6 pt-10 bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-[70vh] px-6 pt-10 bg-gradient-to-b from-brand-50 to-canvas">
       <div className="mx-auto max-w-3xl">
         <Card className="border border-gray-200 shadow-lg">
           <CardHeader className="flex items-center gap-3 py-6">
-            <AiFillBug className="text-blue-600 text-3xl" />
+            <BrandMark className="h-10 w-10 text-brand-700" />
             <h1 className="text-2xl font-semibold text-gray-900">Edit Issue</h1>
           </CardHeader>
 
