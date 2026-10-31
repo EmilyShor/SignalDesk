@@ -12,7 +12,8 @@ import {
   Link,
   Spacer,
 } from "@heroui/react";
-import { AiFillBug } from "react-icons/ai";
+import AuthShell from "@/app/components/AuthShell";
+import Brand from "@/app/components/Brand";
 
 export default function SignInPage() {
   const [error, setError] = useState<string | null>(null);
@@ -36,22 +37,19 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md border border-gray-200 shadow-xl">
+    <AuthShell>
+      <Card className="w-full max-w-md border border-brand-100 shadow-xl shadow-brand-900/5">
         <CardBody className="p-6 sm:p-8">
           {/* Brand */}
           <div className="flex items-center justify-center gap-2 mb-6">
-            <AiFillBug className="text-indigo-600 text-3xl" />
-            <span className="text-xl font-semibold tracking-tight text-gray-900">
-              ZeroBug
-            </span>
+            <Brand />
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-900">
             Sign in
           </h1>
           <p className="mt-1 text-center text-sm text-gray-500">
-            Welcome back! Please enter your details.
+            Welcome back. Your next clear step starts here.
           </p>
 
           <Spacer y={4} />
@@ -119,6 +117,6 @@ export default function SignInPage() {
           </div>
         </CardBody>
       </Card>
-    </div>
+    </AuthShell>
   );
 }
