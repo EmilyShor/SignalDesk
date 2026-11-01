@@ -2,19 +2,7 @@
 
 **Less noise. More progress.** A full-stack issue tracker with a calm aubergine, violet, and mint visual identity.
 
-## Origin and contributions
-
-SignalDesk is Emily Shor's visual customization of [RoyNaor/ZeroBug](https://github.com/RoyNaor/ZeroBug). The original application and its commit history remain credited to their original authors. This repository is a fork, not a claim of sole authorship.
-
-Changes in this version:
-
-- New SignalDesk identity, pulse logo, browser icon, page title, and product copy.
-- A shared violet HeroUI theme, mint accents, and warm light backgrounds.
-- A redesigned dashboard header and coordinated sign-in and registration layouts.
-- A shared brand component and an environment template for local setup.
-- Next.js 15.5.28, a corrected route export, a MySQL migration case fix, and restricted assignee fields in issue responses.
-
-The upstream snapshot does not include a license file. This fork retains upstream authorship and does not introduce a new license.
+Maintained by **Emily Shor**.
 
 ## Features and stack
 
@@ -53,3 +41,17 @@ pnpm build
 ## Branding
 
 The color palette and HeroUI tokens live in `tailwind.config.ts`. The shared logo is in `app/components/Brand.tsx`; `app/icon.svg` provides the matching browser icon. The design uses system fonts and does not require downloading Google Fonts.
+
+## SignalDesk development
+
+- New SignalDesk identity, pulse logo, browser icon, page title, and product copy.
+- A shared violet HeroUI theme, mint accents, and warm light backgrounds.
+- A redesigned dashboard header and coordinated sign-in and registration layouts.
+- A shared brand component and an environment template for local setup.
+- Next.js 15.5.28, a corrected route export, a MySQL migration case fix, and restricted assignee fields in issue responses.
+
+## Credits
+
+SignalDesk builds on [ZeroBug](https://github.com/RoyNaor/ZeroBug) by Roy Naor and its contributors. Original commit authorship is preserved. The SignalDesk identity, visual customization, and changes listed above are maintained by Emily Shor.
+
+The upstream snapshot does not include a license file; this repository does not add a new license.
